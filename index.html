@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>一键成片 · 改这里</title>
+<meta name="description" content="AI 成片后的局部修改：先说清改哪里，再预览，可撤销。产品笔试交互原型。">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="mbar">
+  <b>一键成片 · 改这里</b>
+  <button class="mbar-btn" data-action="toggle-panel" aria-controls="panel" aria-expanded="false">入口与说明</button>
+</div>
+
+<main class="layout">
+  <aside class="panel" id="panel" aria-label="演示入口与说明">
+    <button class="panel-close" data-action="toggle-panel" aria-label="关闭说明">×</button>
+    <p class="eyebrow">交互原型 · 产品笔试</p>
+    <h1>一键成片 · 改这里</h1>
+    <p class="lede">AI 剪出的第一版大致满意时，指着一个镜头说要怎么改：先说清会改哪里，再预览，可以撤销。优先检查修改处和前后衔接，少一些整条复看。</p>
+
+    <h2>演示入口</h2>
+    <div class="entries" id="entries"></div>
+
+    <h2>这一屏</h2>
+    <div class="notes" id="notes" aria-live="polite"></div>
+
+    <details class="cuts">
+      <summary>主动没做什么</summary>
+      <ul>
+        <li>生成前的问答：用一键成片的人不想先回答问题，只保留可选的「必留」。</li>
+        <li>按层审查 AI 的所有决定：等于让用户当审片员；只列这次真正变了的部分。</li>
+        <li>一次给三个候选版本：把表达的成本换成了看和比的成本。</li>
+        <li>「存成我的风格」：一次采用不等于长期偏好，证据不够。</li>
+        <li>单独修改字幕、配乐、节奏：会牵动别处（卡点、时长）。原型只做「换画面」和它连带的字幕调整，扩展方式写在文档里。</li>
+      </ul>
+    </details>
+
+    <p class="disclaimer">素材是 Pexels 的免费授权示例片段；素材理解、检索和渲染都是脚本模拟。「对比检查」的逻辑在原型里真实运行。为产品笔试制作，不是任何公司的正式产品。</p>
+  </aside>
+
+  <div class="device-wrap">
+    <div class="phone">
+      <div class="statusbar" aria-hidden="true">
+        <span>9:41</span>
+        <span class="sb">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="22" height="11" rx="3" stroke="currentColor" opacity=".5"/><rect x="2" y="2" width="17" height="8" rx="1.8" fill="currentColor"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".5"/></svg>
+        </span>
+      </div>
+      <div class="screen" id="screen"></div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</main>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
